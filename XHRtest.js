@@ -10,9 +10,12 @@ document.getElementById('btn').onclick=function(){
 	request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	var data = document.getElementById('root').innerHTML;
 	request.send(data);
+	/*POST方法向服务器发送信息，需要在open()与send()之间加上setRequestHeader()设置头部信息，
+	send()里的字符串内容不能省略*/
 
 	// request.open('GET','XHRtest.txt',true);
 	// request.send();
+	/*GET方法从服务器获取信息，send()内容可以省略*/
 	request.onreadystatechange=function(){
 		if (request.readyState === 4) {
 			if (request.status === 200) {
